@@ -34,13 +34,22 @@ public:
 	float MeshLength = 100.0f;
 
 	UPROPERTY(EditDefaultsOnly, Category = Floor)
-	TSubclassOf<AActor> CurrentFloor;
+	TSubclassOf<ABasicFloor> BaseFloor;
+
+	UPROPERTY(EditDefaultsOnly, Category = Floor)
+	TSubclassOf<ABasicFloor> wall1;
+	UPROPERTY(EditDefaultsOnly, Category = Floor)
+	TSubclassOf<ABasicFloor> wall2;
+	UPROPERTY(EditDefaultsOnly, Category = Floor)
+	TSubclassOf<ABasicFloor> wall3;
+	UPROPERTY(EditDefaultsOnly, Category = Floor)
+	TSubclassOf<ABasicFloor> wall4;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector OriginalLocation;
 
 	UFUNCTION(BluePrintCallable)
-	void Spawn(FVector SpawnLocation, FRotator SpawnRotation);
+	void Spawn(int X, int Y, FVector SpawnLocation, FRotator SpawnRotation);
 
 
 	
