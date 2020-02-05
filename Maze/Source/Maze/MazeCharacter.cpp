@@ -114,6 +114,7 @@ void AMazeCharacter::MoveForward(float Value)
 
 		// get forward vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		//const FVector Speed = (Direction * 10);
 		AddMovementInput(Direction, Value);
 	}
 }
@@ -128,6 +129,7 @@ void AMazeCharacter::MoveRight(float Value)
 	
 		// get right vector 
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+		//const FVector Speed = (Direction * 10);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
