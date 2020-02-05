@@ -44,6 +44,16 @@ public:
 	TSubclassOf<ABasicFloor> wall3;
 	UPROPERTY(EditDefaultsOnly, Category = Floor)
 	TSubclassOf<ABasicFloor> wall4;
+
+	ABasicFloor* SpawnedObject;
+
+	TArray<UStaticMeshComponent*> ObjComps;
+
+	TArray<ABasicFloor*> TileRow;
+	TArray<ABasicFloor*> SetA;
+	TArray<ABasicFloor*> SetB;
+	TArray<ABasicFloor*> SetC;
+	int tileNum = -1;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector OriginalLocation;
@@ -57,6 +67,8 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	
+	bool spawned = false;
 
 public:	
 	// Called every frame

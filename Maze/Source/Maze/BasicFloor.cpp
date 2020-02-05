@@ -12,6 +12,14 @@ ABasicFloor::ABasicFloor()
 
 	FloorTile = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Floor"));
 	FloorTile->SetupAttachment(RootComponent);
+
+	//ABasicFloor MyActor = GetActor
+
+	//AActor* MyActor = Cast<AActor>(ABasicFloor);
+
+	//auto MyActor = this;
+	//TArray<UStaticMeshComponent> StaticComps;
+	//MyActor->GetComponents<UStaticMeshComponent>(StaticComps);
 	
 	
 	//FTransform Root = FloorTile->GetComponentTransform();
