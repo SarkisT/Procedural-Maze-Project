@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "BasicFloor.generated.h"
 
+//class UWidgetComponent;
+
 UCLASS()
 class MAZE_API ABasicFloor : public AActor
 {
@@ -17,6 +19,14 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* FloorTile;
+
+	//UPROPERTY(VisibleAnywhere)
+	//UWidgetComponent* WComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int HP;
+
+	TArray<UStaticMeshComponent*> StaticComps;
 	//UPROPERTY(VisibleAnywhere)
 	//TSubclassOf<AActor*> NWall;
 	//UPROPERTY(VisibleAnywhere)
@@ -30,6 +40,9 @@ public:
 	bool E = true;
 	bool W = true;
 	bool S = true;
+
+	bool split = false;
+	bool extend = false;
 
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	//	FVector WallLocations;
@@ -48,5 +61,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION()
+		void DestroyWalls(int n);
 
 };

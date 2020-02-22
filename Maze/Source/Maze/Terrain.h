@@ -33,17 +33,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float MeshLength = 100.0f;
 
-	UPROPERTY(EditDefaultsOnly, Category = Floor)
+	UPROPERTY(EditAnywhere, Category = Floor)
 	TSubclassOf<ABasicFloor> BaseFloor;
 
-	UPROPERTY(EditDefaultsOnly, Category = Floor)
-	TSubclassOf<ABasicFloor> wall1;
-	UPROPERTY(EditDefaultsOnly, Category = Floor)
-	TSubclassOf<ABasicFloor> wall2;
-	UPROPERTY(EditDefaultsOnly, Category = Floor)
-	TSubclassOf<ABasicFloor> wall3;
-	UPROPERTY(EditDefaultsOnly, Category = Floor)
-	TSubclassOf<ABasicFloor> wall4;
+	int seed;
+
+	int count = 0;
+
+	//UPROPERTY(EditDefaultsOnly, Category = UI)
+	//TSubclassOf<UTileIndexWidget> tileUI;
 
 	ABasicFloor* SpawnedObject;
 
@@ -54,6 +52,25 @@ public:
 	TArray<ABasicFloor*> SetB;
 	TArray<ABasicFloor*> SetC;
 	int tileNum = -1;
+
+	int ExtendA;
+	int ExtendB;
+	int ExtendC;
+
+	TArray<int> indexBeginAndEndSplits;
+	TArray<int> extendedTilesIndex;
+	TArray<int> splitIndex;
+
+	bool prevRow = false;
+	bool extended = true;
+
+	int p = 0;
+	int a;
+	int n;
+	int c;
+	int blocksSpawned = 0;
+	int redWalls = 0;
+	int emptyTiles = 0;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector OriginalLocation;
@@ -61,6 +78,11 @@ public:
 	UFUNCTION(BluePrintCallable)
 	void Spawn(int X, int Y, FVector SpawnLocation, FRotator SpawnRotation);
 
+	UFUNCTION()
+		void ClearFinalRow(TArray<ABasicFloor*> row);
+	//bool bCanSpawn;
+
+	//FTimerHandle SpawnTimer;
 
 	
 
