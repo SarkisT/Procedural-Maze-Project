@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "BasicFloor.h"
+#include "Objective.h"
 #include "Terrain.generated.h"
 
 
@@ -21,56 +22,70 @@ public:
 	//UStaticMeshComponent* BaseFloor;
 
 	//Mesh Settings
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze")
 	int NumberMeshesX;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze")
 	int NumberMeshesY;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze")
 	float MeshWidth = 100.0f;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze")
 	float MeshLength = 100.0f;
 
-	UPROPERTY(EditAnywhere, Category = Floor)
+	UPROPERTY(EditAnywhere, Category = "Floor")
 	TSubclassOf<ABasicFloor> BaseFloor;
 
-	int seed;
+	UPROPERTY(EditAnywhere, Category = "Objective")
+	TSubclassOf<AObjective> Ball;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Seed")
+		int customSeed;//Using this to change seed inside BP
+		
+		
+	FRandomStream seed;	//Custom game seed!
 
 	int count = 0;
 
+	int obj1, obj2, obj3; //Objectives to spawn
+	
 	//UPROPERTY(EditDefaultsOnly, Category = UI)
 	//TSubclassOf<UTileIndexWidget> tileUI;
 
 	ABasicFloor* SpawnedObject;
 
-	TArray<UStaticMeshComponent*> ObjComps;
+	//TArray<UStaticMeshComponent*> ObjComps; //Using a function inside BasicFloor cpp
 
-	TArray<ABasicFloor*> TileRow;
-	TArray<ABasicFloor*> SetA;
-	TArray<ABasicFloor*> SetB;
-	TArray<ABasicFloor*> SetC;
-	int tileNum = -1;
+	TArray<ABasicFloor*> TileRow;//Row of  our tiles.
 
-	int ExtendA;
-	int ExtendB;
-	int ExtendC;
+	int tileNum = -1;//Counts us the row
 
-	TArray<int> indexBeginAndEndSplits;
-	TArray<int> extendedTilesIndex;
-	TArray<int> splitIndex;
+	int ExtendA;//Used for extension
+
+
+	TArray<int> indexBeginAndEndSplits;//Tracks Index where Sets have been split.
+
+	TArray<int> extendedTilesIndex;//Tracks Index of extended Tiles
 
 	bool prevRow = false;
 	bool extended = true;
 
-	int p = 0;
-	int a;
-	int n;
-	int c;
-	int blocksSpawned = 0;
-	int redWalls = 0;
-	int emptyTiles = 0;
+	int splitNum;	//Length of split Set A
+	int splitNum2;  //split B
+
+	int indexNum;	//Index of starting split A
+	int indexNum2;	
+
+
+	int n; //Extension before Set A
+	int a; //Extension inside Set A
+	int b; //Extension Between Sets A and B
+	int d; //Extension Inside Set B
+	int c; //After Set B
+
+	int blocksSpawned = 0; //Tracks how many tiles. Used for spawning balls.
+
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector OriginalLocation;
@@ -79,7 +94,8 @@ public:
 	void Spawn(int X, int Y, FVector SpawnLocation, FRotator SpawnRotation);
 
 	UFUNCTION()
-		void ClearFinalRow(TArray<ABasicFloor*> row);
+		void ClearFinalRow();
+
 	//bool bCanSpawn;
 
 	//FTimerHandle SpawnTimer;
