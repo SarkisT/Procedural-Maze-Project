@@ -24,6 +24,7 @@ ATerrain::ATerrain()
 
 }
 
+
 // Called when the game starts or when spawned
 void ATerrain::BeginPlay()
 {

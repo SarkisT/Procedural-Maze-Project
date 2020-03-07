@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "BasicFloor.h"
 #include "Objective.h"
+//#include "PlayerWidget.h"
 #include "Terrain.generated.h"
 
 
@@ -42,8 +43,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Seed")
 		int customSeed;//Using this to change seed inside BP
-		
-		
+
 	FRandomStream seed;	//Custom game seed!
 
 	int count = 0;
@@ -98,9 +98,7 @@ public:
 
 	//bool bCanSpawn;
 
-	//FTimerHandle SpawnTimer;
-
-	
+	//FTimerHandle SpawnTimer;	
 
 protected:
 	// Called when the game starts or when spawned
