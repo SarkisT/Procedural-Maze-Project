@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "BasicFloor.generated.h"
 
+//class UWidgetComponent;
+
 UCLASS()
 class MAZE_API ABasicFloor : public AActor
 {
@@ -18,11 +20,39 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* FloorTile;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		float MeshWidth = 300.0f;
+	//UPROPERTY(VisibleAnywhere)
+	//UWidgetComponent* WComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		float MeshLength = 300.0f;
+	int HP;
+
+	TArray<UStaticMeshComponent*> StaticComps;
+	//UPROPERTY(VisibleAnywhere)
+	//TSubclassOf<AActor*> NWall;
+	//UPROPERTY(VisibleAnywhere)
+	//TSubclassOf<AActor*>* EWall;
+	//UPROPERTY(VisibleAnywhere)
+	//TSubclassOf<AActor*>* WWall;
+	//UPROPERTY(VisibleAnywhere)
+	//TSubclassOf<AActor*>* SWall;
+
+	bool N = true;
+	bool E = true;
+	bool W = true;
+	bool S = true;
+
+	bool split = false;
+	bool extend = false;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//	FVector WallLocations;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float MeshWidth = 500.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float MeshLength = 500.0f;
 
 protected:
 	// Called when the game starts or when spawned
@@ -31,5 +61,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION()
+		void DestroyWalls(int n);
 
 };
