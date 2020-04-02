@@ -22,6 +22,14 @@ public:
 	//UPROPERTY(VisibleAnywhere)
 	//UStaticMeshComponent* BaseFloor;
 
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
+		int Timer = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
+		int Difficulty;
+
 	//Mesh Settings
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze")
 	int NumberMeshesX;
