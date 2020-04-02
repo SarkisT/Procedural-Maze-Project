@@ -62,6 +62,17 @@ void ATerrain::BeginPlay()
 	
 	FActorSpawnParameters spawnParams;
 	
+	if (Difficulty == 1) {
+		Timer = 50;
+	}
+	else if (Difficulty == 2)
+	{
+		Timer = 30;
+	}
+	else if (Difficulty == 3)
+	{
+		Timer = 20;
+	}
 
 	for (int i = 0; i < NumberMeshesX; i++)//X number of Meshes to spawn
 	{
@@ -74,7 +85,7 @@ void ATerrain::BeginPlay()
 		}
 
 	}
-	
+
 }
 
 // Called every frame

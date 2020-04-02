@@ -18,13 +18,9 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<ATerrain> maze;
-	int Timer;
 
 	UFUNCTION(BluePrintCallable)
-	void ChangeNoMeshes(int numberofX, int numberofY);
-
-	UFUNCTION(BluePrintCallable)
-	void ChangeTimer(int timer);
+	void ChangeNoMeshes(int numberofX, int numberofY, int diff);
 
 	UFUNCTION(BluePrintCallable)
 	void StartGame();
