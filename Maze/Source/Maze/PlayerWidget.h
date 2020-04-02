@@ -17,10 +17,14 @@ public:
 
 
 	UPROPERTY(EditAnywhere)
-		TSubclassOf<ATerrain> maze;
+	TSubclassOf<ATerrain> maze;
+	int Timer;
 
 	UFUNCTION(BluePrintCallable)
 	void ChangeNoMeshes(int numberofX, int numberofY);
+
+	UFUNCTION(BluePrintCallable)
+	void ChangeTimer(int timer);
 
 	UFUNCTION(BluePrintCallable)
 	void StartGame();
