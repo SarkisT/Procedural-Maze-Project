@@ -2,6 +2,7 @@
 
 
 #include "Objective.h"
+#include <MazeCharacter.h>
 #include "Engine.h"
 
 // Sets default values
@@ -21,9 +22,10 @@ void AObjective::BeginPlay()
 
 void AObjective::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
-	//GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, FString::Printf(TEXT("Ouch")));
-
+	auto character = Cast<AMazeCharacter>(Other);
 	
+	character->points++;
+
 	this->Destroy();
 }
 
