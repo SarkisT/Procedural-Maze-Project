@@ -3,10 +3,8 @@
 
 #include "PlayerWidget.h"
 
-void UPlayerWidget::ChangeNoMeshes(int numberofX, int numberofY, int diff)
+void UPlayerWidget::ChangeDiff(int diff)
 {
-	maze.GetDefaultObject()->NumberMeshesX = numberofX;
-	maze.GetDefaultObject()->NumberMeshesY = numberofY;
 	maze.GetDefaultObject()->Difficulty = diff;
 }
 

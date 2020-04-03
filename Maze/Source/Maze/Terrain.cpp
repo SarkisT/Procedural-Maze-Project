@@ -64,14 +64,20 @@ void ATerrain::BeginPlay()
 	
 	if (Difficulty == 1) {
 		Timer = 50;
+		NumberMeshesX = 10;
+		NumberMeshesY = 10;
 	}
 	else if (Difficulty == 2)
 	{
 		Timer = 30;
+		NumberMeshesX = 20;
+		NumberMeshesY = 20;
 	}
 	else if (Difficulty == 3)
 	{
 		Timer = 20;
+		NumberMeshesX = 40;
+		NumberMeshesY = 40;
 	}
 
 	for (int i = 0; i < NumberMeshesX; i++)//X number of Meshes to spawn
