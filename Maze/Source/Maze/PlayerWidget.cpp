@@ -7,8 +7,3 @@ void UPlayerWidget::ChangeDiff(int diff)
 {
 	maze.GetDefaultObject()->Difficulty = diff;
 }
-
-void UPlayerWidget::StartGame()
-{
-	
-}

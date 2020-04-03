@@ -21,8 +21,4 @@ public:
 
 	UFUNCTION(BluePrintCallable)
 	void ChangeDiff(int diff);
-
-	UFUNCTION(BluePrintCallable)
-	void StartGame();
-
 };
