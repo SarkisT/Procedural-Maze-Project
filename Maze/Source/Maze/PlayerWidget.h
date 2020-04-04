@@ -20,9 +20,5 @@ public:
 	TSubclassOf<ATerrain> maze;
 
 	UFUNCTION(BluePrintCallable)
-	void ChangeNoMeshes(int numberofX, int numberofY, int diff);
-
-	UFUNCTION(BluePrintCallable)
-	void StartGame();
-
+	void ChangeDiff(int diff);
 };
