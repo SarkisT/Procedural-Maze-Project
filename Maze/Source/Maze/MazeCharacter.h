@@ -31,7 +31,7 @@ public:
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int points = 0;
+	int points = 0;
 
 protected:
 

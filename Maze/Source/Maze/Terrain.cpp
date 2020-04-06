@@ -42,6 +42,30 @@ void ATerrain::BeginPlay()
 		seed.Initialize(FMath::RandRange(0, 30000));
 	}
 
+	
+	if (diffic == 1) {
+		Timer = 90;
+		NumberMeshesX = 8;
+		NumberMeshesY = 8;
+	}
+	else if (diffic == 2)
+	{
+		Timer = 120;
+		NumberMeshesX = 15;
+		NumberMeshesY = 15;
+	}
+	else if (diffic == 3)
+	{
+		Timer = 300;
+		NumberMeshesX = 30;
+		NumberMeshesY = 30;
+	}
+
+	
+
+	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, FString::Printf(TEXT("DIFFICULTY %i"), diffic));
+
+
 	obj1 = seed.RandRange(1, (NumberMeshesX * NumberMeshesY));
 
 	do {
@@ -54,6 +78,8 @@ void ATerrain::BeginPlay()
 	
 	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, FString::Printf(TEXT("Initial seed chosen: %i  , but we chose this seed %i "), seed.GetInitialSeed() , seed.GetCurrentSeed()));
 
+	GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Emerald, FString::Printf(TEXT("Ball 1: %i  , Ball 2: %i  , Ball 3: %i  , "), obj1, obj2, obj3));
+
 	OriginalLocation = GetActorLocation();
 
 	//GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Emerald, OriginalLocation.ToString());
@@ -62,22 +88,23 @@ void ATerrain::BeginPlay()
 	
 	FActorSpawnParameters spawnParams;
 	
-	if (Difficulty == 1) {
-		Timer = 50;
-		NumberMeshesX = 10;
-		NumberMeshesY = 10;
+	if (Difficulty == 1) 
+	{
+		NumberMeshesX = 8;
+		NumberMeshesY = 8;
+		Timer = 90;
 	}
 	else if (Difficulty == 2)
 	{
-		Timer = 30;
-		NumberMeshesX = 20;
-		NumberMeshesY = 20;
+		Timer = 120;
+		NumberMeshesX = 15;
+		NumberMeshesY = 15;
 	}
 	else if (Difficulty == 3)
 	{
-		Timer = 20;
-		NumberMeshesX = 40;
-		NumberMeshesY = 40;
+		Timer = 240;
+		NumberMeshesX = 30;
+		NumberMeshesY = 30;
 	}
 
 	for (int i = 0; i < NumberMeshesX; i++)//X number of Meshes to spawn

@@ -24,9 +24,14 @@ void AObjective::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiv
 {
 	auto character = Cast<AMazeCharacter>(Other);
 	
-	character->points++;
+	if (character != nullptr) {
 
-	this->Destroy();
+		GEngine->AddOnScreenDebugMessage(-1, 30.0f, FColor::Red, FString::Printf(TEXT("Objective GONE")));
+
+		character->points++;
+
+		this->Destroy();
+	}
 }
 
 // Called every frame
