@@ -62,22 +62,23 @@ void ATerrain::BeginPlay()
 	
 	FActorSpawnParameters spawnParams;
 	
-	if (Difficulty == 1) {
-		Timer = 50;
-		NumberMeshesX = 10;
-		NumberMeshesY = 10;
+	if (Difficulty == 1) 
+	{
+		NumberMeshesX = 8;
+		NumberMeshesY = 8;
+		Timer = 90;
 	}
 	else if (Difficulty == 2)
 	{
-		Timer = 30;
-		NumberMeshesX = 20;
-		NumberMeshesY = 20;
+		Timer = 120;
+		NumberMeshesX = 15;
+		NumberMeshesY = 15;
 	}
 	else if (Difficulty == 3)
 	{
-		Timer = 20;
-		NumberMeshesX = 40;
-		NumberMeshesY = 40;
+		Timer = 240;
+		NumberMeshesX = 30;
+		NumberMeshesY = 30;
 	}
 
 	for (int i = 0; i < NumberMeshesX; i++)//X number of Meshes to spawn

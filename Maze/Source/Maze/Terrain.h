@@ -23,7 +23,6 @@ public:
 	//UStaticMeshComponent* BaseFloor;
 
 
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
 		int Timer = 0;
 

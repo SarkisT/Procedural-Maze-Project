@@ -24,7 +24,7 @@ void AObjective::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiv
 {
 	auto character = Cast<AMazeCharacter>(Other);
 	
-	character->points++;
+	character->points+=1;
 
 	this->Destroy();
 }
