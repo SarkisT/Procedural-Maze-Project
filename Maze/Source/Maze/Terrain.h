@@ -22,47 +22,47 @@ public:
 	//UPROPERTY(VisibleAnywhere)
 	//UStaticMeshComponent* BaseFloor;
 
-
+	//Timer for the maze
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
 		int Timer = 0;
-
+	//Difficulty of maze
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
 		int Difficulty;
 
-	//Mesh Settings
+	//Dimension of maze
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze")
 	int NumberMeshesX;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze")
 	int NumberMeshesY;
 	
+	//Sizes of individual tiles
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze")
 	float MeshWidth = 100.0f;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze")
 	float MeshLength = 100.0f;
 
+	//Tile reference
 	UPROPERTY(EditAnywhere, Category = "Floor")
 	TSubclassOf<ABasicFloor> BaseFloor;
 
+	//Objective reference
 	UPROPERTY(EditAnywhere, Category = "Objective")
 	TSubclassOf<AObjective> Ball;
 
+	//Input custom seed, else it's random
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Seed")
 		int customSeed;//Using this to change seed inside BP
 
-	FRandomStream seed;	//Custom game seed!
+	FRandomStream seed;	//Game seed!
 
 	int count = 0;
 
 	int obj1, obj2, obj3; //Objectives to spawn
 	
-	//UPROPERTY(EditDefaultsOnly, Category = UI)
-	//TSubclassOf<UTileIndexWidget> tileUI;
-
+	
 	ABasicFloor* SpawnedObject;
-
-	//TArray<UStaticMeshComponent*> ObjComps; //Using a function inside BasicFloor cpp
 
 	TArray<ABasicFloor*> TileRow;//Row of  our tiles.
 
@@ -91,8 +91,6 @@ public:
 	int d; //Extension Inside Set B
 	int c; //After Set B
 
-	int blocksSpawned = 0; //Tracks how many tiles. Used for spawning balls.
-
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector OriginalLocation;
@@ -102,10 +100,6 @@ public:
 
 	UFUNCTION()
 		void ClearFinalRow();
-
-	//bool bCanSpawn;
-
-	//FTimerHandle SpawnTimer;	
 
 protected:
 	// Called when the game starts or when spawned

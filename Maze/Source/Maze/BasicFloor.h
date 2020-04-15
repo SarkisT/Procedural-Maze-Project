@@ -20,21 +20,12 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* FloorTile;
 
-	//UPROPERTY(VisibleAnywhere)
-	//UWidgetComponent* WComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int HP;
+
 
 	TArray<UStaticMeshComponent*> StaticComps;
-	//UPROPERTY(VisibleAnywhere)
-	//TSubclassOf<AActor*> NWall;
-	//UPROPERTY(VisibleAnywhere)
-	//TSubclassOf<AActor*>* EWall;
-	//UPROPERTY(VisibleAnywhere)
-	//TSubclassOf<AActor*>* WWall;
-	//UPROPERTY(VisibleAnywhere)
-	//TSubclassOf<AActor*>* SWall;
+
 
 	bool N = true;
 	bool E = true;
@@ -44,15 +35,12 @@ public:
 	bool split = false;
 	bool extend = false;
 
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//	FVector WallLocations;
-
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		float MeshWidth = 500.0f;
+		float MeshWidth = 7.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		float MeshLength = 500.0f;
+		float MeshLength = 7.0f;
 
 protected:
 	// Called when the game starts or when spawned

@@ -16,38 +16,6 @@ ABasicFloor::ABasicFloor()
 	FloorTile = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Floor"));
 	FloorTile->SetupAttachment(RootComponent);
 
-	//WidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("Widget"));
-	//WComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
-	//WComponent->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	//ABasicFloor MyActor = GetActor
-
-	//AActor* MyActor = Cast<AActor>(ABasicFloor);
-
-	//auto MyActor = this;
-	//TArray<UStaticMeshComponent> StaticComps;
-	//MyActor->GetComponents<UStaticMeshComponent>(StaticComps);
-	
-	
-	//FTransform Root = FloorTile->GetComponentTransform();
-	
-	//NWall = AddComponent(FName("WALL"), false, Root, UStaticMeshComponent);//CreateSubobject<UStaticMeshComponent>(TEXT("Wall"));
-	//AddComponent("Wall", true, Root, UStaticMeshComponent);
-	
-
-	//EWall = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Wall"));
-	//EWall->SetupAttachment(FloorTile);
-
-	//WWall = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Wall"));
-	//WWall->SetupAttachment(FloorTile);
-
-	//SWall = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Wall"));
-	//SWall->SetupAttachment(FloorTile);
-
-	//FloorTile = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("My Mesh"));
-	//RootComponent = FloorTile;
-
-	//FloorTile->SetWorldScale3D(FVector(1.0, 1.0, 0.2f));
-	
 
 }
 
@@ -60,25 +28,15 @@ void ABasicFloor::BeginPlay()
 //WEST = 4
 	Super::BeginPlay();
 	this->GetComponents(StaticComps);
-	//AActor* owner = GetOwner();
-	//if (owner) {
-//
-	//}
-	//Cast<UTileIndexWidget>(WComponent->GetUserWidgetObject())->BasicFloor = this;
-	FloorTile->SetWorldScale3D(FVector(7.0, 7.0, 0.25));
-	//GEngine->AddOnScreenDebugMessage(-1, 30, FColor::Blue, FString::Printf(TEXT(" %i "), HP));//Seems good.
-	//GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Emerald, FloorTile->GetComponentScale().ToString());
+
+	FloorTile->SetWorldScale3D(FVector(MeshWidth, MeshLength, 0.25));
+
 }
 
 // Called every frame
 void ABasicFloor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
-	
-	//auto camera = UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0);
-	//WComponent->SetWorldRotation(camera->GetCameraRotation());
-	//WComponent->AddLocalRotation(FRotator(0, 180, 0));
 
 }
 
